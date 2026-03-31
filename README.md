@@ -6,7 +6,7 @@ A web application that predicts sleep quality based on your daily health and lif
 
 ## Requirements
 
-Before running the app, make sure you have these installed on your machine:
+Before running the app, make sure you have these installed:
 
 - Python 3.10 or higher — https://www.python.org/downloads/
 - Node.js 18 or higher — https://nodejs.org/
@@ -17,12 +17,12 @@ Before running the app, make sure you have these installed on your machine:
 
 ### Step 1 — Download the project
 
-Click the green **Code** button on this page → **Download ZIP** → extract the folder.
+Click the green **Code** button → **Download ZIP** → extract the folder.
 
-Or if you have Git installed:
+Or clone it:
 ```bash
 git clone https://github.com/BK-JaiShankari/Sleepiq-app.git
-cd Sleepiq-app
+cd Sleepiq-app-main
 ```
 
 ---
@@ -31,7 +31,7 @@ cd Sleepiq-app
 
 Open a terminal and run:
 ```bash
-cd Sleepiq-app
+cd ~/Downloads/Sleepiq-app-main
 
 python3 -m venv venv
 source venv/bin/activate
@@ -48,11 +48,12 @@ Leave this terminal running. Backend is ready at **http://localhost:8000**
 
 ### Step 3 — Start the Frontend
 
-Open a new terminal tab and run:
+Open a **new terminal tab** and run:
 ```bash
-cd Sleepiq-app/frontend
+cd ~/Downloads/Sleepiq-app-main/frontend
 
 npm install
+npm install axios recharts
 npm run dev
 ```
 
@@ -69,4 +70,18 @@ Go to **http://localhost:5173** in your browser.
 ## Login
 
 - Register a new account, or
-- Click **Continue as Guest** to try without an account
+- Click **Continue as Guest** to use without an account
+
+## Admin Access
+
+| Username | Password |
+|---|---|
+| admin | admin123 |
+
+---
+
+## Notes
+
+- The ML model is trained on a synthetic dataset — predictions are directionally useful but not clinically accurate
+- Basic mode is designed for everyday users, Advanced mode exposes the full ML feature set
+- Prediction history is saved per user account

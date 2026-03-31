@@ -846,9 +846,11 @@ export default function App(){
             </div>
             <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:16}}>
               <ProfileField label="Age">
-                <input type="text" inputMode="numeric" pattern="[0-9]*" value={form.Age}
-                  onChange={e=>{const v=e.target.value.replace(/\D/g,"");if(v==="")return;const n=Math.min(90,Math.max(10,parseInt(v)||10));set("Age",n);}}
-                  style={inpStyle} onFocus={focusBorder} onBlur={blurBorder} placeholder="e.g. 28"/>
+                <input type="text" inputMode="numeric" pattern="[0-9]*"
+                  value={form.Age}
+                  onChange={e=>{const v=e.target.value.replace(/\D/g,"");set("Age",v===''?'':v);}}
+                  onBlur={e=>{const n=parseInt(e.target.value)||28;set("Age",Math.min(90,Math.max(1,n)));e.target.style.borderColor="#e5e7eb";}}
+                  style={inpStyle} onFocus={focusBorder} placeholder="e.g. 28"/>
               </ProfileField>
               <ProfileField label="Gender">
                 <Select value={gender} onChange={handleGender} options={["Male","Female","Other"]}/>
